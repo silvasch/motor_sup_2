@@ -11,7 +11,7 @@ def main():
         data_1=2,
         data_2=3,
         enable=4,
-        frequency=100
+        frequency=50
     )
 
     motor.forwards()
@@ -21,7 +21,7 @@ def main():
             duty_cycle = float(input("Duty cycle: "))
             motor.change_duty_cylce(duty_cycle)
     except KeyboardInterrupt:
-        del(motor)
+        del motor
 
 
 if __name__ == "__main__":
