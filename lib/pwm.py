@@ -24,7 +24,9 @@ class PWM:
         self.write()
 
     def write(self):
-        gpio.pwmWrite(self.__pin_num, PWM.duty_cycle(self.__duty_cycle))
+        dc = PWM.duty_cycle(self.__duty_cycle)
+        print(dc)
+        gpio.pwmWrite(self.__pin_num, dc)
         
     @staticmethod
     def duty_cycle(duty_cycle: float) -> int:
