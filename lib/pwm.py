@@ -13,15 +13,19 @@ class PWM:
 
     def on(self, duty_cycle: float = 100):
         self.__duty_cycle = duty_cycle
-        gpio.pwmWrite(self.__pin_num, PWM.duty_cycle(duty_cycle))
+        self.write()
 
     def off(self):
-        self.__pwm.stop()
+        self.__duty_cycle = 0
+        self.write()
 
     def set_duty_cycle(self, duty_cycle: float):
         self.__duty_cycle = duty_cycle
-        gpio.pwmWrite(PWM.duty_cycle(self.__duty_cycle), 0)
+        self.write()
 
+    def write(self):
+        gpio.pwmWrite(self.__pin_num, PWM.duty_cycle(self.__duty_cycle))
+        
     @staticmethod
     def duty_cycle(duty_cycle: float) -> int:
         int(duty_cycle / 100 * 1024)
