@@ -23,7 +23,7 @@ class PWM:
         gpio.pwmWrite(PWM.duty_cycle(self.__duty_cycle))
 
     @staticmethod
-    def duty_cycle(duty_cycle: float) -> float:
+    def duty_cycle(duty_cycle: float) -> int:
         round(duty_cycle / 100 * 1024)
 
     def __del__(self):
