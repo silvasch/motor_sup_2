@@ -20,7 +20,7 @@ class PWM:
 
     def set_duty_cycle(self, duty_cycle: float):
         self.__duty_cycle = duty_cycle
-        gpio.pwmWrite(PWM.duty_cycle(self.__duty_cycle))
+        gpio.pwmWrite(PWM.duty_cycle(self.__duty_cycle), 0)
 
     @staticmethod
     def duty_cycle(duty_cycle: float) -> int:
