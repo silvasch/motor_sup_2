@@ -24,7 +24,7 @@ class PWM:
 
     @staticmethod
     def duty_cycle(duty_cycle: float) -> float:
-        duty_cycle / 100 * 1024
+        round(duty_cycle / 100 * 1024)
 
     def __del__(self):
         pass
